@@ -49,6 +49,12 @@ nav > a {
   background: gray;
 }
 
+.social > a {
+  border: none;
+  background: none;
+  width: auto;
+}
+
 footer {
   font-weight: lighter;
   position: fixed;
