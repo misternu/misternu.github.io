@@ -1,11 +1,10 @@
 body {
   background-image: url("../imgs/bg.jpg");
   background-size: cover;
+  font-family: 'Oswald', sans-serif;
 }
 
 header {
-  font-family: 'Oswald', sans-serif;
-  font-weight: bold;
   display: block;
   margin: auto;
   width: 15em;
@@ -22,8 +21,9 @@ header > img {
 }
 
 h1 {
-  display:block;
-  margin:auto;
+  font-weight: bold;
+  display: block;
+  margin: auto;
   text-align: center;
   color: white;
 }
@@ -36,10 +36,9 @@ nav {
   text-align: center;
 }
 
-.pages > a {
+nav > a {
   display: inline-block;
   font-size: 1.4em;
-  font-family: 'Oswald', sans-serif;
   color:white;
   text-align: center;
   text-decoration: none;
@@ -50,11 +49,7 @@ nav {
   background: gray;
 }
 
-nav > img {
-}
-
 footer {
-  font-family: 'Oswald', sans-serif;
   font-weight: lighter;
   position: fixed;
   text-align: center;

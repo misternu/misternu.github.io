@@ -1,0 +1,30 @@
+body {
+  background: white;
+}
+
+header {
+  float: left;
+  text-align: left;
+  width: auto;
+  margin-top: auto;
+  padding: 3em;
+}
+
+h1 {
+  color: black;
+  text-align: left;
+}
+
+section {
+  padding: 2em;
+}
+
+.archive {
+  float: right;
+  margin: 2em;
+}
+
+.archive > a {
+  display: block;
+  width: 10em;
+}
