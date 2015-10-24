@@ -1,5 +1,5 @@
 body {
-  background: white;
+  background-image: url("../imgs/blog_bg.jpg");
 }
 
 header {
@@ -24,7 +24,9 @@ article {
   margin: 2em;
 }
 
-.archive > a {
+.archive > * {
   display: block;
-  width: 10em;
+  width: 14em;
+  text-align: left;
+  padding-left: 0.25em;
 }
