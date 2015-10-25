@@ -24,6 +24,7 @@ article {
 .archive {
   float: right;
   margin: 2em;
+  margin-left: 3em;
 }
 
 .archive > * {
@@ -31,4 +32,13 @@ article {
   width: 14em;
   text-align: left;
   padding-left: 0.25em;
+}
+
+body > a {
+  display:block;
+  width: 2em;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
 }
