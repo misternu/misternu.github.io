@@ -30,21 +30,18 @@
       The method <code>each</code> for Array and Hash can be used to run a block on the objects/pairs withinn them. The problem is, you will always have to manually decide on where the results of that block are stored. Very frequently, you will want the results to be stored in another enumerable.</p>
     <p>
       The most common way of doing this is with a method called <code>map</code>. The method iterates over the enumerable, feeding it to a block. It stores whatever it gets back in an array.</p>
-    <pre><code>
-      >> [1,2,3,4,5].map { |x| x + 1 }
-      => [2, 3, 4, 5, 6]
-      >> { :a=>1, :b=>"hello", :c=>1.5 }.map { |k, v| v.to_s + " world" }
-      => ["1 world", "hello world", "1.5 world"]</code></pre>
+    <pre><code>>> [1,2,3,4,5].map { |x| x + 1 }
+=> [2, 3, 4, 5, 6]
+>> { :a=>1, :b=>"hello", :c=>1.5 }.map { |k, v| v.to_s + " world" }
+=> ["1 world", "hello world", "1.5 world"]</code></pre>
     <p>
       If you're doing this to an array, you also have the opportunity to do it destructively with the method <code>map!</code>:</p>
-    <pre><code>
-      >> array = [4,5,6,7]
-      => [4, 5, 6, 7]
-      >> array.map! { |x| x-3 }
-      => [1, 2, 3, 4]
-      >> array
-      => [1, 2, 3, 4]
-    </code></pre>
+    <pre><code>>> array = [4,5,6,7]
+=> [4, 5, 6, 7]
+>> array.map! { |x| x-3 }
+=> [1, 2, 3, 4]
+>> array
+=> [1, 2, 3, 4]</code></pre>
     <p>
       This method is very easy to use and succinct, but it can be hard for other people to read. Careful use of variable names and commenting should take care of this problem, and people will get used to reading <code>map</code> one way or the other.</p>
   </article>
