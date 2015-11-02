@@ -1,0 +1,51 @@
+<!-- ****************** -->
+<!-- Blog Template HTML -->
+<!-- ****************** -->
+<!-- UPDATED IN WEEK 3, DIFFERENT NOW -->
+<!DOCTYPE html>
+<head>
+  <title>Git & GitHub</title>
+  <meta charset="UTF-8">
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+</head>
+
+<body>
+  <a href="index.html"><</a>
+  <nav class="archive">
+    <h1>Archive</h1>
+    <a href="#">Seven date</a>
+    <a href="#">Six date</a>
+    <a href="#">Five date</a>
+    <a href="enumerable-methods.html">Enumerable map (Nov 1, '15)</a>
+    <a href="arrays-hashes.html">Arrays & Hashes (Oct 23 '15)</a>
+    <a href="css-concepts.html">Inline VS Inline-Block (Oct 18 '15)</a>
+    <a href="git.html">Git and GitHub (Oct 3 '15)</a>
+  </nav>
+  <article>
+    <h1>The .map method of Enumerable</h1>
+    <h4>November 1st, 2015</h4>
+    <p>
+      The method <code>each</code> for Array and Hash can be used to run a block on the objects/pairs withinn them. The problem is, you will always have to manually decide on where the results of that block are stored. Very frequently, you will want the results to be stored in another enumerable.</p>
+    <p>
+      The most common way of doing this is with a method called <code>map</code>. The method iterates over the enumerable, feeding it to a block. It stores whatever it gets back in an array.</p>
+    <pre><code>
+      >> [1,2,3,4,5].map { |x| x + 1 }
+      => [2, 3, 4, 5, 6]
+      >> { :a=>1, :b=>"hello", :c=>1.5 }.map { |k, v| v.to_s + " world" }
+      => ["1 world", "hello world", "1.5 world"]</code></pre>
+    <p>
+      If you're doing this to an array, you also have the opportunity to do it destructively with the method <code>map!</code>:</p>
+    <pre><code>
+      >> array = [4,5,6,7]
+      => [4, 5, 6, 7]
+      >> array.map! { |x| x-3 }
+      => [1, 2, 3, 4]
+      >> array
+      => [1, 2, 3, 4]
+    </code></pre>
+    <p>
+      This method is very easy to use and succinct, but it can be hard for other people to read. Careful use of variable names and commenting should take care of this problem, and people will get used to reading <code>map</code> one way or the other.</p>
+  </article>
+</body>
