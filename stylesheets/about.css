@@ -1,0 +1,32 @@
+h1 {
+  color: white;
+}
+
+#email {
+  width: 10em;
+}
+
+nav {
+  background: gray;
+  color: white;
+  font-size: 24px;
+  text-align: left;
+  padding: 50px;
+  height: 350px;
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -350px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+body > a {
+  display:block;
+  width: 2em;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+  color:white;
+}
