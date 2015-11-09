@@ -1,0 +1,72 @@
+<!-- ****************** -->
+<!-- Blog Template HTML -->
+<!-- ****************** -->
+<!-- UPDATED IN WEEK 3, DIFFERENT NOW -->
+<!DOCTYPE html>
+<head>
+  <title>Ruby Classes</title>
+  <meta charset="UTF-8">
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+</head>
+
+<body>
+  <a href="index.html"><</a>
+  <nav class="archive">
+    <h1>Archive</h1>
+    <a href="#">Seven date</a>
+    <a href="#">Six date</a>
+    <a href="ruby-classes.html">Ruby Classes (Nov 9, '15)</a>
+    <a href="enumerable-methods.html">Enumerable map (Nov 1, '15)</a>
+    <a href="arrays-hashes.html">Arrays & Hashes (Oct 23 '15)</a>
+    <a href="css-concepts.html">Inline VS Inline-Block (Oct 18 '15)</a>
+    <a href="git.html">Git and GitHub (Oct 3 '15)</a>
+  </nav>
+  <article>
+    <h1>Ruby Classes</h1>
+    <h4>November 9th 2015</h4>
+    <p>
+      Working with variables, arrays, and hashes is great... but. Sometimes, you are going to be using a data structure so many times in your program that it saves time to create a custom one. You can think of these custom classes as blueprints for new objects, that can be used again and again.
+    </p>
+    <p>The syntax is simple:</p>
+    <pre><code>
+class ClassName
+  def initialize(argument)
+
+  end
+end
+    </code></pre>
+    <p>
+      Every class should define a method called <code>initialize</code>. This method is called when the object is created with <code>ClassName.new</code>. One of the most important things you can do in an initialize method is to set the instance variables. Lets try that now in a new class called Jar
+    </p>
+    <pre><code>
+class Jar
+  def initialize(item, quantity)
+    @item = item
+    @quantity = quantity
+  end
+end
+    </code></pre>
+    <p>The <code>@</code> at the beginning of a variable indicates that it is an instance variable. Instance variables are available from inside each instance of the class. By storing those two values in instance variables, we get to keep them for longer than the execution of <code>initialize</code>.</p>
+    <pre><code>
+class Jar
+  def initialize(item, quantity)
+    @item = item
+    @quantity = quantity
+  end
+
+  def add_one
+    @quantity += 1
+  end
+end
+    </code></pre>
+    <p>I added a method <code>add_one</code> to the class. We can call that on an instance of the class to increase its stored number of items by one. But how do we get that item?</p>
+    <pre><code>
+marbles = Jar.new("marbles", 8)
+marbles.add_one
+p marbles.quantity
+    </code></pre>
+    <p>When we try to access the instance variable from the outside it doesn't work. We get a <code>NoMethodError</code>. For that, we will need to either make a method that returns the variable manually, or learn about accessors. A subject for next time? I will leave it at that for now, thanks for reading!</p>
+  </article>
+</body>
