@@ -1,21 +1,25 @@
-nav {
-  background: gray;
+article {
+  background:gray;
   color: white;
-  font-size: 24px;
+  font-size: 19px;
   text-align: left;
   padding: 50px;
-  height: 350px;
-  width: 600px;
+  height: 500px;
+  width: 800px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -250px 0 0 -350px;
+  margin: -300px 0 0 -450px;
   border: 2px solid white;
   border-radius: 5px;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
 }
 
 body > a {
   display:block;
+  position:static;
   width: 2em;
   font-size: 40px;
   text-align: center;
