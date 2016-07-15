@@ -18,4 +18,9 @@ var fadeTo = function(value) {
   $('#bottom').css("opacity", 0.6 * (1-value));
   $('#fade').css("opacity", value * 0.8);
   $('#overlay').css("opacity", value);
+  if (value > 0.5) {
+    $("#overlay span").css("pointer-events", "all");
+  } else {
+    $("#overlay span").css("pointer-events", "none");
+  }
 }
