@@ -1,0 +1,149 @@
+body {
+  background: black;
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+.container {
+  background: url('../imgs/bg.jpg') no-repeat top center;
+  display: block;
+  height: 100vh;
+  position: relative;
+}
+
+#spacer {
+  display: block;
+  height: 25vh;
+  max-height: 225px;
+}
+
+#fade {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+  background: black;
+  opacity: 0;
+}
+
+#edge {
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  pointer-events: none;
+  background-image:
+    -webkit-linear-gradient(top,
+      rgba(0,0,0,0) 85%,
+      rgba(0,0,0,0.90) 100%
+    )
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    background-size: 1200px auto;
+    background-position: top center;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  #edge {
+    background-image:
+      -webkit-linear-gradient(top,
+        rgba(0,0,0,0) 85%,
+        rgba(0,0,0,0.90) 100%
+      ),
+      -webkit-linear-gradient(left,
+        rgba(0,0,0,0.65) 0%,
+        rgba(0,0,0,0) 15%,
+        rgba(0,0,0,0) 85%,
+        rgba(0,0,0,0.65) 100%
+      );
+  }
+
+  #spacer {
+    height: 35vh;
+    max-height: 300px;
+  }
+}
+
+
+header {
+  display: block;
+  margin: auto;
+}
+
+header img {
+  display: block;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  max-width: 11em;
+  max-height: 11em;
+  border-radius:50%;
+  border: 3px solid white;
+}
+
+header h1 {
+  margin: auto;
+  margin-top: 0px;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4)
+}
+
+.social img {
+  width: 32px;
+  height: 32px;
+  margin: 5px;
+}
+
+#bottom {
+  opacity: 0.6;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+#bottom img {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+}
+
+footer {
+  position: relative;
+  background: black;
+  height: 60vh;
+  pointer-events: none;
+}
+
+#overlay {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+#overlay span {
+  text-align: justify;
+  display: block;
+  font-size: 2.3em;
+  line-height: 2em;
+  width: 80vw;
+  margin: auto;
+  margin-top: 20vw;
+  pointer-events: all;
+}
+
+footer p {
+  position: absolute;
+  color: gray;
+  bottom: 0;
+  width: 100%;
+  font-size: 10px;
+}

@@ -10,7 +10,9 @@ title: Syntactic Sophistry
 email: misternu@gmail.com
 description: True knowledge lies in knowing you can just look it up in the docs.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://misternu.github.io/" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
+github:
+  url: http://localhost:4000
 twitter_username: misternu
 github_username:  misternu
 
