@@ -43,35 +43,6 @@ a {
     )
 }
 
-@media only screen and (min-width: 600px) {
-  .container {
-    background-size: 1200px auto;
-    background-position: top center;
-    max-width: 1200px;
-    margin: auto;
-  }
-
-  #edge {
-    background-image:
-      -webkit-linear-gradient(top,
-        rgba(0,0,0,0) 85%,
-        rgba(0,0,0,0.90) 100%
-      ),
-      -webkit-linear-gradient(left,
-        rgba(0,0,0,0.65) 0%,
-        rgba(0,0,0,0) 15%,
-        rgba(0,0,0,0) 85%,
-        rgba(0,0,0,0.65) 100%
-      );
-  }
-
-  #spacer {
-    height: 35vh;
-    max-height: 300px;
-  }
-}
-
-
 header {
   display: block;
   margin: auto;
@@ -134,7 +105,9 @@ footer {
   font-size: 2em;
   line-height: 2em;
   width: 80vw;
-  margin: 5vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 5vh;
 }
 
 footer p {
@@ -143,4 +116,36 @@ footer p {
   bottom: 0;
   width: 100%;
   font-size: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    background-size: 1200px auto;
+    background-position: top center;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  #edge {
+    background-image:
+      -webkit-linear-gradient(top,
+        rgba(0,0,0,0) 85%,
+        rgba(0,0,0,0.90) 100%
+      ),
+      -webkit-linear-gradient(left,
+        rgba(0,0,0,0.65) 0%,
+        rgba(0,0,0,0) 15%,
+        rgba(0,0,0,0) 85%,
+        rgba(0,0,0,0.65) 100%
+      );
+  }
+
+  #spacer {
+    height: 35vh;
+    max-height: 300px;
+  }
+
+  #overlay span {
+    margin-top: 25vh;
+  }
 }
