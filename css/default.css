@@ -91,6 +91,7 @@ footer {
 }
 
 #overlay {
+  opacity: 0;
   position: fixed;
   top: 0px;
   left: 0;

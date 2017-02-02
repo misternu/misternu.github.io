@@ -1,13 +1,3 @@
-$(function() {
-  fadeTo(0);
-  $("#bottom").on('click', function(event) {
-    scrollDown();
-  });
-  $(window).on('scroll', function(event) {
-    fadeTo(($(this).scrollTop() / $(window).height())/0.6);
-  })
-})
-
 var scrollDown = function() {
   $("html, body").animate({
     scrollTop: $(document).height()-$(window).height()
@@ -24,3 +14,25 @@ var fadeTo = function(value) {
     $("#overlay span").css("pointer-events", "none");
   }
 }
+
+var scrollValue = function() {
+  return ($(window).scrollTop() / $(window).height())/0.6;
+}
+
+//
+$(function() {
+  fadeTo(scrollValue());
+
+  $("#bottom").on('click', function(event) {
+    scrollDown();
+  });
+
+  $(window).on('scroll', function(event) {
+    fadeTo(scrollValue());
+  });
+
+  window.onunload = function() {
+    scrollTo(0,0)
+  };
+});
+
