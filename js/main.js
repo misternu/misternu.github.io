@@ -16,19 +16,20 @@ var fadeTo = function(value) {
 }
 
 var scrollValue = function() {
-  return ($(window).scrollTop() / $(window).height())/0.6;
+  return Math.max(($(window).scrollTop() / $(window).height())/0.6, 0.01);
+}
+
+var scrollCheck = function() {
+  fadeTo(scrollValue());
 }
 
 //
 $(function() {
-  fadeTo(scrollValue());
+  scrollCheck();
+  setInterval(scrollCheck, 39);
 
   $("#bottom").on('click', function(event) {
     scrollDown();
-  });
-
-  $(window).on('scroll', function(event) {
-    fadeTo(scrollValue());
   });
 
   window.onunload = function() {
