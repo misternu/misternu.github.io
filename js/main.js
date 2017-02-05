@@ -23,8 +23,13 @@ var scrollCheck = function() {
   fadeTo(scrollValue());
 }
 
-//
 $(function() {
+  WebFont.load({
+    google: {
+      families: ['Oswald']
+    }
+  })
+
   scrollCheck();
   setInterval(scrollCheck, 39);
 

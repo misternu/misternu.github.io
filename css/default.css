@@ -1,6 +1,6 @@
 body {
   background: black;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald', Impact, sans-serif;
   color: white;
   text-align: center;
 }
@@ -11,8 +11,6 @@ a {
 
 .container {
   background: url('../imgs/bg.jpg') no-repeat top center;
-  display: block;
-  height: 100vh;
   position: relative;
 }
 
