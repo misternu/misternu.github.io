@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  {% include portfolio-head.html %}
+  <body>
+    {% include portfolio-header.html %}
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+    <footer class="site-footer"></footer>
+  </body>
+  <script>
+    $(document).ready(function() {
+      $('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 240,
+        fitWidth: true
+      });
+    });
+  </script>
+</html>
