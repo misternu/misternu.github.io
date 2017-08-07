@@ -8,8 +8,47 @@
     {% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
+  <style>
+    .grid {
+      margin: 0 auto;
+    }
+    .grid-item {
+      box-sizing: border-box;
+      float: left;
+      width: 200px;
+      margin: 20px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px gray;
+      overflow: hidden;
+    }
+    .grid-item .trim-img{
+      width: 100%;
+      max-height: 130px;
+      overflow: hidden;
+    }
+    .portfolio-title {
+      background: lightgray;
+      padding: 10px;
+    }
+    .portfolio-title h2 {
+      margin: 0;
+    }
+    .portfolio-title a {
+      color: black;
+    }
+    .portfolio-summary {
+      padding: 10px;
+    }
+  </style>
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <script
+      src="http://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 </head>
 

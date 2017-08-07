@@ -3,16 +3,30 @@ layout: portfolio-default
 title: Timothy Meixell's Portfolio
 ---
 <div class="home">
-  <ul class="post-list">
+  <div class="grid">
     {% for post in site.categories.portfolio %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h2>
+      <div class="grid-item">
+        {% if post.thumbnail %}
           <a class="post-link" href="{{ post.url | prepend: site.github.url }}">
-            {{ post.title }}
+            <div class="trim-img">
+              <img src={{post.thumbnail}} alt="sudoku puzzle">
+            </div>
           </a>
-        </h2>
-      </li>
+        {% endif %}
+        <!-- <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span> -->
+        <div class="portfolio-title">
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.github.url }}">
+              {{ post.title }}
+            </a>
+          </h2>
+        </div>
+        {% if post.summary %}
+          <div class="portfolio-summary">
+            {{post.summary}}
+          </div>
+        {% endif %}
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 </div>

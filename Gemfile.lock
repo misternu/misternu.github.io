@@ -200,6 +200,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (= 146)
+  jekyll
   jekyll-compose
   kramdown
 
