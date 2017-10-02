@@ -2,7 +2,7 @@
 layout: post
 title:  "Ruby Classes"
 date:   2015-11-9 00:00:00 -0600
-categories: vcs
+categories: programming
 ---
 
 Working with variables, arrays, and hashes is great... but. Sometimes, you are going to be using a data structure so many times in your program that it saves time to create a custom one. You can think of these custom classes as blueprints for new objects, that can be used again and again.
