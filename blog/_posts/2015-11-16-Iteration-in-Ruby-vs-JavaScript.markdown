@@ -3,7 +3,6 @@ layout: post
 title:  "Iteration in JavaScript vs Ruby"
 date:   2015-11-16 00:00:00 -0600
 categories: programming
-comments: true
 ---
 
 Now that we are working in JavaScript, we still have to iterate over arrays and dictionaries. But, we don't have any of those useful convenience methods anymore. So, as primitive as it sounds, we are just going to have to count.
