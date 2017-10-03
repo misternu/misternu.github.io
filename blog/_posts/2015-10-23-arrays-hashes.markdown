@@ -3,6 +3,7 @@ layout: post
 title:  "Arrays & Hashes"
 date:   2015-10-23 00:00:00 -0600
 categories: programming
+comments: true
 ---
 
 When learining to write programs in Ruby, it can become cumbersome to create variables for each and every object that the program creates. In many cases, you wont even know what is going to be stored until runtime. Arrays and hashes allow for you to store objects in collections, and have methods that allow for you to easily access their stored information.
