@@ -3,7 +3,6 @@ layout: post
 title:  "The cube root of four is irrational"
 date:   2017-01-27 00:00:00 -0600
 categories: math
-comments: true
 ---
 
 A proof by contradiction is one in which you assume that something is true, and show that the conclusions are contradictory, and so the assumtion must be false. Since we are trying to prove that it is *irrational*, we will assume that it is *rational*, and work from there to find something fishy.

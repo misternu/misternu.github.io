@@ -3,7 +3,6 @@ layout: post
 title:  "Git & Github"
 date:   2015-10-3 00:00:00 -0600
 categories: vcs
-comments: true
 ---
 So you're learning to code. One day, when writing something, you decide to do an expirament. "Oh no," you think, "what if I'm wrong? Better save a backup copy," so you make a duplicate of the file and get on with your business. This keeps happening. Before you know it you have a pile of extra files, some with dates and some without, that you have to manually sort through to find revisions. More and more cruft, no matter how naturally organized you are.
 
