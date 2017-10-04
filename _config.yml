@@ -12,7 +12,7 @@ description: True knowledge lies in knowing you can just look it up in the docs.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 github:
-  url: http://misternu.github.io
+  url: http://timothymeixell.com
 twitter_username: misternu
 github_username:  misternu
 
