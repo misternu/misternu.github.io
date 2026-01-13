@@ -1,8 +1,55 @@
 ---
 layout: site-default
 ---
-{% include site-avatar.html %}
-{% include site-social.html %}
-<div id="bottom">
-  <img src="imgs/scrolldown.svg">
-</div>
+
+<header>
+  <img src="imgs/profile.jpg" alt="Timothy Meixell" class="profile-image">
+  <h1>Timothy Meixell</h1>
+</header>
+
+<section class="about">
+  <p>Full-stack web developer with nearly a decade of experience building robust web applications. I specialize in Python and Ruby on Rails, crafting elegant solutions to complex problems. Currently focused on backend architecture, API design, and bringing ideas to life with clean, maintainable code.</p>
+</section>
+
+<section class="social">
+  <a target="_blank" href="https://github.com/misternu" aria-label="GitHub">
+    <img src="imgs/github.svg" alt="GitHub">
+  </a>
+  <a target="_blank" href="https://twitter.com/misternu" aria-label="Twitter">
+    <img src="imgs/twitter.svg" alt="Twitter">
+  </a>
+  <a target="_blank" href="https://www.linkedin.com/in/timothymeixell" aria-label="LinkedIn">
+    <img src="imgs/linkedin.svg" alt="LinkedIn">
+  </a>
+</section>
+
+<section class="portfolio">
+  <h2>Featured Projects</h2>
+  <div class="portfolio-grid">
+    <article class="portfolio-card">
+      <h3>Project Nexus</h3>
+      <p>Data pipeline automation system built with Python and FastAPI. Streamlines complex data workflows with elegant architecture and real-time processing capabilities.</p>
+      <div class="tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Redis</span>
+      </div>
+    </article>
+
+    <article class="portfolio-card">
+      <h3>HarmonyCMS</h3>
+      <p>Content management platform with real-time collaboration features. Built for teams who need powerful content tools without the complexity.</p>
+      <div class="tech">
+        <span class="tech-tag">Ruby on Rails</span>
+        <span class="tech-tag">Hotwire</span>
+        <span class="tech-tag">Tailwind CSS</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="contact">
+  <p>Available for contract work and interesting projects.</p>
+  <p><a href="mailto:misternu@gmail.com">misternu@gmail.com</a></p>
+</section>
