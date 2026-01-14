@@ -49,18 +49,19 @@ body::before {
 .grid-overlay {
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50vh;
+  left: -50vw;
+  width: 200%;
+  height: 100vh;
   background-image:
-    linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba(168, 85, 247, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.3) 1px, transparent 1px);
   background-size: 50px 50px;
   perspective: 1000px;
-  transform: rotateX(60deg);
-  transform-origin: bottom;
+  transform: perspective(600px) rotateX(60deg);
   pointer-events: none;
   z-index: 0;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0.2) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .container {
@@ -74,7 +75,12 @@ body::before {
 /* Header / Profile Section */
 header {
   text-align: center;
-  padding: 4rem 0 3rem;
+  padding: 4rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .profile-image {
@@ -107,11 +113,11 @@ header {
 }
 
 h1 {
+  font-family: 'Audiowide', cursive;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple));
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -126,23 +132,54 @@ h1 {
   100% { background-position: 200% center; }
 }
 
+/* Scroll Indicator */
+.scroll-indicator {
+  margin-top: 2rem;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+}
+
+.scroll-indicator svg {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 0 10px var(--neon-cyan));
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Content Section - Fades in on scroll */
+.content-section {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
 /* About Section */
 .about {
   max-width: 800px;
-  margin: 0 auto 4rem;
-  text-align: center;
+  margin: 2rem auto 4rem;
   padding: 2rem;
-  background: rgba(26, 26, 46, 0.5);
-  border: 2px solid var(--neon-purple);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
 }
 
 .about p {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1.8;
-  color: var(--text-white);
-  font-family: 'Courier New', monospace;
+  color: var(--neon-cyan);
+  font-family: 'Orbitron', 'Courier New', monospace;
+  text-align: left-justify;
 }
 
 /* Portfolio Section */
@@ -155,7 +192,6 @@ h1 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: var(--neon-pink);
-  text-transform: uppercase;
   letter-spacing: 0.15em;
   text-shadow:
     0 0 10px var(--neon-pink),
@@ -240,7 +276,7 @@ h1 {
 /* Social Links */
 .social {
   text-align: center;
-  margin: 3rem 0;
+  margin: 2rem 0 0;
 }
 
 .social a {
@@ -266,26 +302,63 @@ h1 {
 /* Contact Section */
 .contact {
   text-align: center;
-  margin: 4rem 0 2rem;
-  padding: 2rem;
+  margin: 4rem auto 2rem;
+  padding: 2.5rem;
+  max-width: 700px;
+  background: rgba(26, 26, 46, 0.6);
+  border: 3px solid var(--neon-cyan);
+  border-radius: 15px;
+  box-shadow:
+    0 0 30px rgba(0, 245, 255, 0.4),
+    0 0 60px rgba(0, 245, 255, 0.2),
+    inset 0 0 30px rgba(0, 245, 255, 0.1);
+  animation: contact-pulse 3s ease-in-out infinite;
+}
+
+@keyframes contact-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 30px rgba(0, 245, 255, 0.4),
+      0 0 60px rgba(0, 245, 255, 0.2),
+      inset 0 0 30px rgba(0, 245, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(0, 245, 255, 0.5),
+      0 0 80px rgba(0, 245, 255, 0.3),
+      inset 0 0 40px rgba(0, 245, 255, 0.15);
+  }
 }
 
 .contact p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--text-white);
   font-family: 'Courier New', monospace;
+  margin-bottom: 1rem;
+}
+
+.contact p:first-child {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+  margin-bottom: 1.5rem;
 }
 
 .contact a {
   color: var(--neon-cyan);
   text-decoration: none;
-  text-shadow: 0 0 5px var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
   transition: all 0.3s ease;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .contact a:hover {
   color: var(--neon-pink);
-  text-shadow: 0 0 10px var(--neon-pink);
+  text-shadow: 0 0 15px var(--neon-pink);
+  transform: scale(1.05);
+  display: inline-block;
 }
 
 /* Footer */
@@ -308,7 +381,7 @@ footer p {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 40vh;
+  height: 80vh;
   z-index: 0;
   pointer-events: none;
 }
@@ -318,7 +391,9 @@ footer p {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(255, 0, 110, 0.1), transparent);
+  --mountain-intensity: 0.3;
+  --glow-intensity: 0.8;
+  background: linear-gradient(to top, rgba(255, 0, 110, var(--mountain-intensity)), transparent);
   clip-path: polygon(
     0% 100%,
     0% 60%,
@@ -336,7 +411,8 @@ footer p {
     100% 100%
   );
   border-top: 2px solid var(--neon-pink);
-  filter: drop-shadow(0 -5px 20px rgba(255, 0, 110, 0.5));
+  filter: drop-shadow(0 -5px 20px rgba(255, 0, 110, var(--glow-intensity)));
+  transition: all 0.3s ease;
 }
 
 /* Responsive Design */
@@ -365,6 +441,11 @@ footer p {
 
   .about, .contact {
     padding: 1.5rem;
+  }
+
+  .scroll-indicator svg {
+    width: 32px;
+    height: 32px;
   }
 }
 

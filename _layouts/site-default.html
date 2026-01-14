@@ -12,7 +12,69 @@
   </div>
 
   {% include site-footer.html %}
-</body>
+
+<script>
+  // Scroll-based reveal effects
+  (function() {
+    const mountains = document.querySelector('.mountains');
+    const mountainLayer = document.querySelector('.mountain-layer');
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    const contentSections = document.querySelectorAll('.content-section');
+
+    function handleScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollThreshold = 50; // Start fading after 50px of scroll
+      const fadeDistance = 200; // Complete fade over 200px (sooner)
+      const scrollProgress = Math.min(Math.max(scrollTop - scrollThreshold, 0) / fadeDistance, 1);
+
+      // Fade out scroll indicator quickly
+      if (scrollIndicator) {
+        const indicatorProgress = Math.min(scrollTop / 150, 1);
+        scrollIndicator.style.opacity = Math.max(0.6 - indicatorProgress, 0);
+      }
+
+      // Gradually dim mountains as we scroll (over 500px for smooth transition)
+      const mountainDimProgress = Math.min(scrollTop / 500, 1);
+      const mountainIntensity = 0.3 - (0.2 * mountainDimProgress); // From 0.3 to 0.1
+      const glowIntensity = 0.8 - (0.3 * mountainDimProgress); // From 0.8 to 0.5
+
+      if (mountainLayer) {
+        mountainLayer.style.setProperty('--mountain-intensity', mountainIntensity);
+        mountainLayer.style.setProperty('--glow-intensity', glowIntensity);
+      }
+
+      // Fade in all content sections based on scroll progress
+      contentSections.forEach(section => {
+        section.style.opacity = scrollProgress;
+      });
+    }
+
+    // Smooth scroll on indicator click
+    if (scrollIndicator) {
+      scrollIndicator.addEventListener('click', function() {
+        const firstSection = document.querySelector('.content-section');
+        if (firstSection) {
+          const offsetTop = firstSection.getBoundingClientRect().top + window.pageYOffset;
+          const offset = 150; // Adjust this value to control how much to show above content
+          window.scrollTo({
+            top: offsetTop - offset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+
+    // Handle scroll events
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    // Reset scroll on page unload
+    window.addEventListener('beforeunload', function() {
+      window.scrollTo(0, 0);
+    });
+  })();
+</script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -21,4 +83,5 @@
   ga('create', 'UA-81882888-1', 'auto');
   ga('send', 'pageview');
 </script>
+</body>
 </html>
