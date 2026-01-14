@@ -1,8 +1,58 @@
 ---
 layout: site-default
 ---
-{% include site-avatar.html %}
-{% include site-social.html %}
-<div id="bottom">
-  <img src="imgs/scrolldown.svg">
-</div>
+
+<header>
+  <img src="imgs/profile.jpg" alt="Timothy Meixell" class="profile-image">
+  <h1>Timothy Meixell</h1>
+  <div class="scroll-indicator" id="scroll-indicator">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="#00f5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</header>
+
+<section class="about content-section">
+  <p>Full-stack web developer with a decade of experience building robust web applications. I specialize in Python and Ruby on Rails, crafting elegant solutions to complex problems. Currently focused on backend architecture, API design, and bringing ideas to life with clean, maintainable code.</p>
+</section>
+
+<!-- Portfolio section commented out - add real projects here when ready
+<section class="portfolio content-section">
+  <h2>Featured Projects</h2>
+  <div class="portfolio-grid">
+    <article class="portfolio-card">
+      <h3>Project Nexus</h3>
+      <p>Data pipeline automation system built with Python and FastAPI. Streamlines complex data workflows with elegant architecture and real-time processing capabilities.</p>
+      <div class="tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Redis</span>
+      </div>
+    </article>
+
+    <article class="portfolio-card">
+      <h3>HarmonyCMS</h3>
+      <p>Content management platform with real-time collaboration features. Built for teams who need powerful content tools without the complexity.</p>
+      <div class="tech">
+        <span class="tech-tag">Ruby on Rails</span>
+        <span class="tech-tag">Hotwire</span>
+        <span class="tech-tag">Tailwind CSS</span>
+      </div>
+    </article>
+  </div>
+</section>
+-->
+
+<section class="contact content-section">
+  <p>Available for contract work and projects for the public good.</p>
+  <p><a href="mailto:timothymeixell@gmail.com">timothymeixell@gmail.com</a></p>
+  <div class="social">
+    <a target="_blank" href="https://github.com/misternu" aria-label="GitHub">
+      <img src="imgs/github.svg" alt="GitHub">
+    </a>
+    <a target="_blank" href="https://www.linkedin.com/in/timothymeixell" aria-label="LinkedIn">
+      <img src="imgs/linkedin.svg" alt="LinkedIn">
+    </a>
+  </div>
+</section>
