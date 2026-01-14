@@ -18,4 +18,4 @@ github_username:  misternu
 
 # Build settings
 markdown: kramdown
-exclude: ['README.markdown', 'Gemfile.lock', 'Gemfile']
+exclude: ['README.markdown', 'Gemfile.lock', 'Gemfile', 'blog', 'portfolio', 'claude.md']
