@@ -25,24 +25,23 @@
 
     function handleScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollThreshold = 50; // Start fading after 50px of scroll
-      const fadeDistance = 200; // Complete fade over 200px (sooner)
+      const vh = window.innerHeight;
+      const scrollThreshold = vh * 0.05; // Start fading after 5% of viewport scroll
+      const fadeDistance = vh * 0.15; // Complete fade over 15% of viewport
       const scrollProgress = Math.min(Math.max(scrollTop - scrollThreshold, 0) / fadeDistance, 1);
 
       // Fade out scroll indicator quickly
       if (scrollIndicator) {
-        const indicatorProgress = Math.min(scrollTop / 150, 1);
+        const indicatorProgress = Math.min(scrollTop / (vh * 0.15), 1);
         scrollIndicator.style.opacity = Math.max(0.6 - indicatorProgress, 0);
       }
 
-      // Gradually dim mountains as we scroll (over 500px for smooth transition)
-      const mountainDimProgress = Math.min(scrollTop / 500, 1);
+      // Gradually dim mountains as we scroll (over ~50% of viewport for smooth transition)
+      const mountainDimProgress = Math.min(scrollTop / (vh * 0.5), 1);
       const mountainIntensity = 0.3 - (0.2 * mountainDimProgress); // From 0.3 to 0.1
-      const glowIntensity = 0.8 - (0.3 * mountainDimProgress); // From 0.8 to 0.5
 
       if (mountainLayer) {
         mountainLayer.style.setProperty('--mountain-intensity', mountainIntensity);
-        mountainLayer.style.setProperty('--glow-intensity', glowIntensity);
       }
 
       // Fade in all content sections based on scroll progress
@@ -51,19 +50,27 @@
       });
     }
 
-    // Smooth scroll on indicator click
+    // Smooth scroll on header/indicator click
+    function scrollToContent() {
+      const firstSection = document.querySelector('.content-section');
+      if (firstSection) {
+        const offsetTop = firstSection.getBoundingClientRect().top + window.pageYOffset;
+        const offset = window.innerHeight * 0.15; // 15% of viewport above content
+        window.scrollTo({
+          top: offsetTop - offset,
+          behavior: 'smooth'
+        });
+      }
+    }
+
     if (scrollIndicator) {
-      scrollIndicator.addEventListener('click', function() {
-        const firstSection = document.querySelector('.content-section');
-        if (firstSection) {
-          const offsetTop = firstSection.getBoundingClientRect().top + window.pageYOffset;
-          const offset = 150; // Adjust this value to control how much to show above content
-          window.scrollTo({
-            top: offsetTop - offset,
-            behavior: 'smooth'
-          });
-        }
-      });
+      scrollIndicator.addEventListener('click', scrollToContent);
+    }
+
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.cursor = 'pointer';
+      header.addEventListener('click', scrollToContent);
     }
 
     // Handle scroll events
@@ -74,6 +81,23 @@
     window.addEventListener('beforeunload', function() {
       window.scrollTo(0, 0);
     });
+
+    // Email copy to clipboard
+    const emailEl = document.querySelector('.email-copy');
+    if (emailEl) {
+      const originalHTML = emailEl.innerHTML;
+      emailEl.addEventListener('click', function() {
+        const email = this.dataset.email;
+        navigator.clipboard.writeText(email).then(() => {
+          this.textContent = 'copied to clipboard';
+          this.classList.add('copied');
+          setTimeout(() => {
+            this.innerHTML = originalHTML;
+            this.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    }
   })();
 </script>
 

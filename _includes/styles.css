@@ -100,6 +100,8 @@ header {
   justify-content: center;
   align-items: center;
   position: relative;
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
 }
 
 .profile-image {
@@ -188,17 +190,18 @@ h1 {
 
 /* About Section */
 .about {
-  max-width: 800px;
-  margin: 2rem auto 4rem;
-  padding: 2rem;
+  width: 70%;
+  margin: 6rem auto 4rem;
+  padding: 2.5rem 2.4rem;
+  background: rgba(26, 26, 46, 0.4);
+  border-radius: 10px;
 }
 
 .about p {
-  font-size: 1.4rem;
-  line-height: 1.8;
+  font-size: 1.5rem;
+  line-height: 1.9;
   color: var(--neon-cyan);
   font-family: 'Orbitron', 'Courier New', monospace;
-  text-align: left-justify;
 }
 
 /* Portfolio Section */
@@ -322,46 +325,27 @@ h1 {
 .contact {
   text-align: center;
   margin: 4rem auto 2rem;
-  padding: 2.5rem;
-  max-width: 700px;
-  background: rgba(26, 26, 46, 0.6);
-  border: 3px solid var(--neon-cyan);
-  border-radius: 15px;
+  padding: 2rem;
+  width: 50%;
+  background: rgba(26, 26, 46, 0.5);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 10px;
   box-shadow:
-    0 0 30px rgba(0, 245, 255, 0.4),
-    0 0 60px rgba(0, 245, 255, 0.2),
-    inset 0 0 30px rgba(0, 245, 255, 0.1);
-  animation: contact-pulse 3s ease-in-out infinite;
-}
-
-@keyframes contact-pulse {
-  0%, 100% {
-    box-shadow:
-      0 0 30px rgba(0, 245, 255, 0.4),
-      0 0 60px rgba(0, 245, 255, 0.2),
-      inset 0 0 30px rgba(0, 245, 255, 0.1);
-  }
-  50% {
-    box-shadow:
-      0 0 40px rgba(0, 245, 255, 0.5),
-      0 0 80px rgba(0, 245, 255, 0.3),
-      inset 0 0 40px rgba(0, 245, 255, 0.15);
-  }
+    0 0 20px rgba(0, 245, 255, 0.25),
+    inset 0 0 20px rgba(0, 245, 255, 0.05);
 }
 
 .contact p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text-white);
   font-family: 'Courier New', monospace;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .contact p:first-child {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.1rem;
   color: var(--neon-cyan);
-  text-shadow: 0 0 10px var(--neon-cyan);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .contact a {
@@ -378,6 +362,36 @@ h1 {
   text-shadow: 0 0 15px var(--neon-pink);
   transform: scale(1.05);
   display: inline-block;
+}
+
+.email-copy {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.email-copy:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 15px var(--neon-pink);
+}
+
+.email-copy.copied {
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px var(--neon-purple);
+  text-decoration: none;
+}
+
+.copy-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
 }
 
 /* Footer */
@@ -411,7 +425,6 @@ footer p {
   width: 100%;
   height: 100%;
   --mountain-intensity: 0.3;
-  --glow-intensity: 0.8;
   background: linear-gradient(to top, rgba(255, 0, 110, var(--mountain-intensity)), transparent);
   clip-path: polygon(
     0% 100%,
@@ -430,8 +443,6 @@ footer p {
     100% 100%
   );
   border-top: 2px solid var(--neon-pink);
-  filter: drop-shadow(0 -5px 20px rgba(255, 0, 110, var(--glow-intensity)));
-  transition: all 0.3s ease;
 }
 
 /* Responsive Design */
@@ -458,7 +469,18 @@ footer p {
     padding: 1rem;
   }
 
-  .about, .contact {
+  .about {
+    width: 90%;
+    margin-top: 4rem;
+    padding: 1.5rem;
+  }
+
+  .about p {
+    font-size: 1.3rem;
+  }
+
+  .contact {
+    width: 90%;
     padding: 1.5rem;
   }
 
