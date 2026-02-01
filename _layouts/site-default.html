@@ -86,8 +86,9 @@
     const emailEl = document.querySelector('.email-copy');
     if (emailEl) {
       const originalHTML = emailEl.innerHTML;
+      // Get email from text content (after Cloudflare decodes it)
+      const email = emailEl.textContent.trim();
       emailEl.addEventListener('click', function() {
-        const email = this.dataset.email;
         navigator.clipboard.writeText(email).then(() => {
           this.textContent = 'copied to clipboard';
           this.classList.add('copied');
